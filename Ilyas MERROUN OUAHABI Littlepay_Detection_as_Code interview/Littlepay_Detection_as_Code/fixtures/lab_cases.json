@@ -1,0 +1,163 @@
+[
+  {
+    "id": "T01",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:14:02Z INFO PaymentController order_id=100042317 amount=1299 ccy=AUD",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T02",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:14:03Z INFO TokenService tokenized card first6=411111 last4=4242",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T03",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:14:05Z DEBUG AuthService user_id=88213 phone=+61400123456",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T04",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:14:09Z INFO SettlementJob batch=778 ref=1234567812345678 status=ok",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T05",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:15:10Z DEBUG CardParser raw payload card=4111111111111111 exp=12/27 cvc=123",
+    "expected_rule_ids": [
+      "LPY-PAN-001",
+      "LPY-CVC-001"
+    ]
+  },
+  {
+    "id": "T06",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:15:11Z ERROR PaymentGateway declined pan=5500005555555559 reason=limit",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T07",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:03Z WARN ApiGateway payload card=4111-1111-1111-1111",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T08",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:04Z WARN ApiGateway payload card=4111 1111 1111 1111",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T09",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:05Z DEBUG Processed card=411111******1111 (masked)",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T10",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:06Z INFO Invoice ref=4111111111111111 (not a card; known field)",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T11",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:07Z ERROR {\"cvv\":\"123\",\"message\":\"payment declined\"}",
+    "expected_rule_ids": [
+      "LPY-CVC-001"
+    ]
+  },
+  {
+    "id": "T12",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:08Z INFO payment cvv=*** status=masked",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T13",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:09Z WARN pan=4111111111111112 (checksum invalid but explicitly labelled)",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T14",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:10Z INFO phone=+4111111111111111",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T15",
+    "service": "synthetic-fixture-service",
+    "log": "2026-10-11T09:16:11Z INFO card=4111111111111111 (reviewed synthetic allowlist)",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T16",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:12Z INFO {\"pan\":\"4111111111111111\"}",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T17",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:13Z INFO customer selected plan=PREMIUM and payment method token=tok_1234",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T18",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:14Z INFO security_code=987",
+    "expected_rule_ids": [
+      "LPY-CVC-001"
+    ]
+  },
+  {
+    "id": "T19",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:15Z INFO event_time=2026-10-11 09:16:15 settle=complete",
+    "expected_rule_ids": []
+  },
+  {
+    "id": "T20",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:16:16Z INFO payload contained 4111111111111111 (unlabelled but Luhn-valid)",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T21",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:17:01Z DEBUG card=41111112******4242",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T22",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:17:02Z DEBUG pan=411111******14242",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ]
+  },
+  {
+    "id": "T23",
+    "service": "payments-svc",
+    "log": "2026-10-11T09:17:03Z DEBUG pan=411111******4242",
+    "expected_rule_ids": []
+  }
+]

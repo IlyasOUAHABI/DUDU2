@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "owner": "Security Engineering",
+  "data_source": "Application logs (payment services)",
+  "security_framework": ["PCI DSS v4.0.1 Requirement 3: Protect Stored Account Data"],
+  "mitre_attack": {
+    "technique": null,
+    "rationale": "A data-handling control, not evidence of a particular adversary technique; avoid a forced ATT&CK mapping."
+  },
+  "rules": [
+    {
+      "id": "LPY-PAN-001",
+      "description": "Possible unmasked primary account number in application logs",
+      "default_severity": "High",
+      "data_source": "Payment application logs",
+      "runbook": "docs/RUNBOOK.md#pan-alert"
+    },
+    {
+      "id": "LPY-CVC-001",
+      "description": "Card security code in application logs",
+      "default_severity": "Critical",
+      "data_source": "Payment application logs",
+      "runbook": "docs/RUNBOOK.md#cvc-alert"
+    }
+  ]
+}

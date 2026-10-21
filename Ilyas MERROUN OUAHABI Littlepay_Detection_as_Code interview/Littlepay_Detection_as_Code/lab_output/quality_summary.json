@@ -1,0 +1,28 @@
+{
+  "evaluation_date": "2026-10-20",
+  "regression_cases": 23,
+  "regression_passed": 23,
+  "challenge_cases": 8,
+  "known_gaps": 5,
+  "rule_metrics": {
+    "LPY-PAN-001": {
+      "tp": 10,
+      "fp": 1,
+      "fn": 2,
+      "tn": 18,
+      "precision": 0.9091,
+      "recall": 0.8333,
+      "false_positive_rate": 0.0526
+    },
+    "LPY-CVC-001": {
+      "tp": 4,
+      "fp": 1,
+      "fn": 1,
+      "tn": 25,
+      "precision": 0.8,
+      "recall": 0.8,
+      "false_positive_rate": 0.0385
+    }
+  },
+  "measurement_scope": "Labelled synthetic regression and challenge fixtures only"
+}

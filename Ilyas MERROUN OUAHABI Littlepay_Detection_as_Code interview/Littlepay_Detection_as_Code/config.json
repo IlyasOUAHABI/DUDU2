@@ -1,0 +1,18 @@
+{
+  "allowlist": [
+    {
+      "service": "synthetic-fixture-service",
+      "rule_id": "LPY-PAN-001",
+      "expires_on": "2027-01-01",
+      "approved_by": "demo-security-review",
+      "reason": "Controlled synthetic fixture only; not a production payment workload"
+    }
+  ],
+  "routing": {
+    "critical": "soc-urgent",
+    "high": "soc-payment-security",
+    "medium": "soc-triage",
+    "low": "soc-backlog"
+  },
+  "dedup_window_minutes": 15
+}

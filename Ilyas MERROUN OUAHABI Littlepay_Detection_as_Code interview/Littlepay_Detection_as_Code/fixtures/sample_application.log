@@ -1,0 +1,6 @@
+2026-10-11T09:14:02Z INFO          PaymentController order_id=100042317 amount=1299 ccy=AUD
+2026-10-11T09:14:03Z INFO          TokenService tokenized card first6=411111 last4=4242
+2026-10-11T09:14:05Z DEBUG AuthService user_id=88213 phone=+61400123456
+2026-10-11T09:14:09Z INFO SettlementJob batch=778 ref=1234567812345678 status=ok
+2026-10-11T09:15:10Z DEBUG CardParser raw payload card=4111111111111111 exp=12/27 cvc=123
+2026-10-11T09:15:11Z ERROR PaymentGateway declined pan=5500005555555559 reason=limit

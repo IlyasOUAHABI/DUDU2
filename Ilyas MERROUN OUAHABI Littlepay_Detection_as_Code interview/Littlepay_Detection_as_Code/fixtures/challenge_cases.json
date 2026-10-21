@@ -1,0 +1,84 @@
+[
+  {
+    "id": "E24",
+    "description": "PAN mistakenly logged under a reference key",
+    "service": "payments-svc",
+    "log": "2026-10-11T10:10:00Z DEBUG Parser ref=4111111111111111",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ],
+    "observation": "The non-card field exclusion hides a genuine PAN (false negative).",
+    "future_improvement": "Review strict exclusions and combine field context with service-specific evidence."
+  },
+  {
+    "id": "E25",
+    "description": "PAN with unsupported dot separators",
+    "service": "payments-svc",
+    "log": "2026-10-11T10:10:01Z ERROR CardParser card=4111.1111.1111.1111",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ],
+    "observation": "An uncommon separator prevents a candidate from being extracted (false negative).",
+    "future_improvement": "Support additional safe formats and test boundary conditions."
+  },
+  {
+    "id": "E26",
+    "description": "Luhn-valid billing reference",
+    "service": "payments-svc",
+    "log": "2026-10-11T10:10:02Z INFO SettlementJob billing_reference=4111111111111111",
+    "expected_rule_ids": [],
+    "observation": "An unlisted business field is mistaken for a PAN (false positive).",
+    "future_improvement": "Use validated service-specific field maps rather than a global list."
+  },
+  {
+    "id": "E27",
+    "description": "Non-payment configuration security code",
+    "service": "configuration-svc",
+    "log": "2026-10-11T10:10:03Z INFO AppConfig security_code=123",
+    "expected_rule_ids": [],
+    "observation": "An ambiguous non-payment security code triggers a CVC finding (false positive).",
+    "future_improvement": "Scope CVC rules to relevant services and add contextual checks."
+  },
+  {
+    "id": "E28",
+    "description": "Alternate CVV field naming",
+    "service": "payments-svc",
+    "log": "2026-10-11T10:10:04Z ERROR Gateway card_cvv=123",
+    "expected_rule_ids": [
+      "LPY-CVC-001"
+    ],
+    "observation": "An unrecognized field alias hides a CVC exposure (false negative).",
+    "future_improvement": "Maintain a reviewed field-name dictionary with regression coverage."
+  },
+  {
+    "id": "E29",
+    "description": "Supported explicit PAN field",
+    "service": "payments-svc",
+    "log": "2026-10-11T10:10:05Z WARN card_number=5500005555555559",
+    "expected_rule_ids": [
+      "LPY-PAN-001"
+    ],
+    "observation": "Supported card field correctly detected.",
+    "future_improvement": "Keep this as a positive check for future updates."
+  },
+  {
+    "id": "E30",
+    "description": "Supported CVC alias",
+    "service": "payments-svc",
+    "log": "2026-10-11T10:10:06Z WARN cvv2=321",
+    "expected_rule_ids": [
+      "LPY-CVC-001"
+    ],
+    "observation": "Supported card-security-code field correctly detected.",
+    "future_improvement": "Keep this as a positive check for future updates."
+  },
+  {
+    "id": "E31",
+    "description": "Known invoice identifier",
+    "service": "payments-svc",
+    "log": "2026-10-11T10:10:07Z INFO invoice_id=4111111111111111",
+    "expected_rule_ids": [],
+    "observation": "A known non-card field is correctly excluded.",
+    "future_improvement": "Keep this as a negative check for future updates."
+  }
+]
